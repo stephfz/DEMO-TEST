@@ -1,14 +1,14 @@
 import { Locator, Page } from "@playwright/test";
+import { HelperBase } from "./helperBase";
 
-export class NavigationPage{
-    readonly page: Page
+export class NavigationPage extends HelperBase{
     readonly formLayoutMenuItem: Locator
     readonly datePickerMenuItem: Locator
     readonly toastrMenuItem: Locator
     readonly smartTableMenuItem: Locator
 
     constructor(page :Page){
-        this.page = page
+        super(page)
         this.formLayoutMenuItem = page.getByText('Form Layouts');
         this.datePickerMenuItem = page.getByText('Datepicker');
         this.smartTableMenuItem = page.getByText('Smart Table');
@@ -23,6 +23,7 @@ export class NavigationPage{
     async datePickerPage(){
         await this.selectGroupMenuItem('Forms')
         //await this.page.waitForTimeout(1000)
+        await this.waitForNumberOfSeconds(4)
         await this.datePickerMenuItem.click()
 
     }
