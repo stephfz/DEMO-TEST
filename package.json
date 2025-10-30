@@ -2,7 +2,9 @@
   "name": "demo-test",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "pageObjects-chrome": "npx playwright test usePageObjects.spec.ts --project=chromium"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
